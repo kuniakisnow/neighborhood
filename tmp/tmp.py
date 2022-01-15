@@ -22,10 +22,11 @@ num = 2
 
 print(sheet.max_row)
 
+MaxRow = sheet.max_row + 1
 exit()
 
 
-for i in range(2,161):
+for i in range(2,MaxRow):
     team = sheet.cell(row=i,column=2).value
 #    print(team)
     for j in range(3,15):
@@ -47,7 +48,7 @@ list = [[0 for i in range(13)] for j in range(13)]
 PerList = [[0 for i in range(13)] for j in range(13)]
 
 NumTeam = [0]*13
-for i in range(2,161):
+for i in range(2,MaxRow):
     team = sheet.cell(row=i,column=2).value
     if team == "9-1":
         team = 9
@@ -87,5 +88,8 @@ for team in range(0,12):
 sheet3.cell(row=2,column=1,value="合計")
 for team in range(1,12):
     sheet3.cell(row=team+2,column=1,value=team)
+
+
+    "=CORREL($B$3:$K$3,$B3:$K3)"
 
 # wb.save('./アンケート結果2.xlsx')
